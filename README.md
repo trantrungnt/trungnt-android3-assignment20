@@ -1,4 +1,6 @@
 # trungnt-android3-assignment20
+##Yêu cầu
+[BTVN Media Player1](http://i477.photobucket.com/albums/rr132/trungepu/13446281_861696833937103_789442249_o_zpsgxlzpwqs.jpg)
 
 ##Tham khảo
 + [List all music in media store with the paths](http://stackoverflow.com/questions/13568798/list-all-music-in-mediastore-with-the-paths)
