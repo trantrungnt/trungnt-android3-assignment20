@@ -1,6 +1,7 @@
 package techkids.mad3.learnmediaplayer;
 
 import android.content.ContentResolver;
+import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;
@@ -14,15 +15,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    private Button btnReplay, btnAction, btnPrevious, btnNext, btnStop;
+    private Button btnReplay, btnAction, btnPrevious, btnNext;
     private ListView lvListFileMusic;
     private ArrayList<Song> arrSongList;
     private ContentResolver musicResolver;
     private Uri musicUri;
     private Cursor musicCursor;
-    private int titleColumn, int idColumn, artistColumn, dateColumn, timeColumn;
+    private int titleColumn, idColumn, artistColumn, dateColumn, timeColumn;
     private long id;
     private String title, artist, date, time;
+    private SongAdapter songAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +64,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             while (musicCursor.moveToNext());
         }
+
+        songAdapter = new SongAdapter(getApplicationContext(), arrSongList);
+        lvListFileMusic.setAdapter(songAdapter);
     }
 
     private void initComponents() {
