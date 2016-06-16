@@ -9,8 +9,36 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="techkids.mad3.learnmediaplayer.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+    <Button
+        android:id="@+id/btnReplay"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/btn_marginLeft"
+        android:background="@drawable/replay"
+        android:layout_width="@dimen/btn_width"
+        android:layout_height="@dimen/btnHeight" />
+
+    <Button
+        android:id="@+id/btnBack"
+        android:background="@drawable/previous"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/btn_marginLeft"
+        android:layout_toRightOf="@id/btnReplay"
+        android:layout_width="@dimen/btn_width"
+        android:layout_height="@dimen/btnHeight" />
+    <Button
+        android:id="@+id/btnAction"
+        android:background="@drawable/play"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/btn_marginLeft"
+        android:layout_toRightOf="@id/btnBack"
+        android:layout_width="@dimen/btn_width"
+        android:layout_height="@dimen/btnHeight" />
+    <Button
+        android:id="@+id/btnNext"
+        android:background="@drawable/next"
+        android:layout_marginLeft="@dimen/btn_marginLeft"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/btnAction"
+        android:layout_width="@dimen/btn_width"
+        android:layout_height="@dimen/btnHeight" />
 </RelativeLayout>
