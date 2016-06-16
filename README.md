@@ -9,3 +9,4 @@
 + [Create a music player on android project setup mobile](http://code.tutsplus.com/tutorials/create-a-music-player-on-android-project-setup--mobile-22764)
 + [Material Design Icons](https://materialdesignicons.com/)
 + [Create a Music Player on Android: User Controls](http://code.tutsplus.com/tutorials/create-a-music-player-on-android-user-controls--mobile-22787)
++ [Meida Player in Android](https://developer.android.com/reference/android/media/MediaPlayer.html)
