@@ -6,4 +6,5 @@
     <dimen name="btnHeight">60dp</dimen>
     <dimen name="btn_marginLeft">25dp</dimen>
     <dimen name="lvListFileMusic_marginBotton">10dp</dimen>
+    <dimen name="text_size">20sp</dimen>
 </resources>
