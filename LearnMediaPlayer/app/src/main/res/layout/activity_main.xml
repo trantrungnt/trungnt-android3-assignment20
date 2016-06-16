@@ -41,4 +41,11 @@
         android:layout_toRightOf="@id/btnAction"
         android:layout_width="@dimen/btn_width"
         android:layout_height="@dimen/btnHeight" />
+
+    <ListView
+        android:id="@+id/lvListFileMusic"
+        android:layout_above="@id/btnReplay"
+        android:layout_marginBottom="@dimen/lvListFileMusic_marginBotton"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></ListView>
 </RelativeLayout>
