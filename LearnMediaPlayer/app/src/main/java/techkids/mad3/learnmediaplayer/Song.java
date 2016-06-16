@@ -50,4 +50,12 @@ public class Song {
     private String artist;
     private String currentDate;
     private String time;
+
+    public Song(long id, String title, String artist, String currentDate, String time) {
+        this.id = id;
+        this.title = title;
+        this.artist = artist;
+        this.currentDate = currentDate;
+        this.time = time;
+    }
 }
