@@ -14,3 +14,4 @@
 + [Media Player](https://developer.android.com/guide/topics/media/mediaplayer.html)
 + [Android building audio player tutorial](http://www.androidhive.info/2012/03/android-building-audio-player-tutorial/)
 + [Playing audio in Android example](http://www.javatpoint.com/playing-audio-in-android-example)
++ [Play MP3 in Android Tutorial Android Media Player Example](http://jmsliu.com/2499/play-mp3-in-android-tutorial-android-mediaplayer-example.html)
