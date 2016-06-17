@@ -16,3 +16,4 @@
 + [Playing audio in Android example](http://www.javatpoint.com/playing-audio-in-android-example)
 + [Play MP3 in Android Tutorial Android Media Player Example](http://jmsliu.com/2499/play-mp3-in-android-tutorial-android-mediaplayer-example.html)
 + [Using an ArrayAdapter with ListView](https://guides.codepath.com/android/Using-an-ArrayAdapter-with-ListView)
++ [Audio Playback and Recording](https://guides.codepath.com/android/Audio-Playback-and-Recording)
