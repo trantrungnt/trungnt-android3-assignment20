@@ -1,18 +1,25 @@
 package techkids.mad3.learnmediaplayer;
 
 import android.content.ContentResolver;
-import android.content.Context;
 import android.database.Cursor;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.ThemedSpinnerAdapter;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.MediaController;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private Button btnReplay, btnAction, btnPrevious, btnNext;
@@ -25,6 +32,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private long id;
     private String title, artist, date, time;
     private SongAdapter songAdapter;
+    private MediaPlayer mediaPlayer;
+    private String path;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,31 +50,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void displaySongList() {
-        arrSongList = new ArrayList<Song>();
-        musicResolver = getContentResolver();
-        musicUri = android.provider.MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
-        musicCursor = musicResolver.query(musicUri, null, null, null, null);
-
-        if(musicCursor!=null && musicCursor.moveToFirst()){
-            //get columns
-            idColumn = musicCursor.getColumnIndex(android.provider.MediaStore.Audio.Media._ID);
-            titleColumn = musicCursor.getColumnIndex(android.provider.MediaStore.Audio.Media.TITLE);
-            artistColumn = musicCursor.getColumnIndex(android.provider.MediaStore.Audio.Media.ARTIST);
-            dateColumn = musicCursor.getColumnIndex(MediaStore.Audio.Media.DATE_ADDED);
-            timeColumn = musicCursor.getColumnIndex(MediaStore.Audio.Media.DURATION);
-            //add songs to list
-            do {
-                long id = musicCursor.getLong(idColumn);
-                title = musicCursor.getString(titleColumn);
-                artist = musicCursor.getString(artistColumn);
-                date = musicCursor.getColumnName(dateColumn);
-                time = musicCursor.getColumnName(timeColumn);
-                arrSongList.add(new Song(id, title, artist, date, time));
-            }
-            while (musicCursor.moveToNext());
+        ArrayList songs=new ArrayList();
+        mediaPlayer = new MediaPlayer();
+        try {
+            path = Helper.PATH_STORAGE_MUSIC + "How Will I Know Who You Are - Jessica.mp3";
+            Log.d("path", path);
+            mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+            mediaPlayer.setDataSource(path);
+            mediaPlayer.prepare();
+            mediaPlayer.start();
+        }catch (Exception e) {
+            e.printStackTrace();
         }
 
-        songAdapter = new SongAdapter(getApplicationContext(), arrSongList);
+        songAdapter = new SongAdapter(getApplicationContext(), songs);
         lvListFileMusic.setAdapter(songAdapter);
     }
 
