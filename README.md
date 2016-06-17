@@ -54,3 +54,4 @@
 + [Audio Playback and Recording](https://guides.codepath.com/android/Audio-Playback-and-Recording)
 + [Get file .mp3 from SDCard and display to listview](https://googleandroid4you.wordpress.com/2011/11/16/get-file-from-sdcard-and-display-to-listview/)
 + [Displaying the List of music files Stored in SD card and playing music in the background](http://z4android.blogspot.com/2011/06/displaying-list-of-music-files-stored.html)
++ [Audio Player](http://www.srikanthtechnologies.com/blog/android/audioplayer.aspx)
