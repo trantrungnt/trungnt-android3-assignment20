@@ -4,6 +4,41 @@
 ![BTVN Media Player2](http://i477.photobucket.com/albums/rr132/trungepu/13461295_861696870603766_1416147647_o_zpsvxpx1bxg.jpg)
 ![BTVN Mediao Player3](http://i477.photobucket.com/albums/rr132/trungepu/BTVN%20Media%20Player%202_zps3b9i4fax.jpg)
 
+##Chú ý khi code
++ Có 3 cách chạy file mp3: từ Application Resource, từ Stored in sd card và từ Internet
+```
+ private void displaySongList() {
+        arrSongList = new ArrayList<Song>();
+        musicResolver = getContentResolver();
+        musicUri = android.provider.MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+        musicCursor = musicResolver.query(musicUri, null, null, null, null);
+
+        if(musicCursor!=null && musicCursor.moveToFirst()){
+            //get columns
+            idColumn = musicCursor.getColumnIndex(android.provider.MediaStore.Audio.Media._ID);
+            titleColumn = musicCursor.getColumnIndex(android.provider.MediaStore.Audio.Media.TITLE);
+            artistColumn = musicCursor.getColumnIndex(android.provider.MediaStore.Audio.Media.ARTIST);
+            dateColumn = musicCursor.getColumnIndex(MediaStore.Audio.Media.DATE_ADDED);
+            timeColumn = musicCursor.getColumnIndex(MediaStore.Audio.Media.DURATION);
+            //add songs to list
+            do {
+                long id = musicCursor.getLong(idColumn);
+                title = musicCursor.getString(titleColumn);
+                artist = musicCursor.getString(artistColumn);
+                date = musicCursor.getColumnName(dateColumn);
+                time = musicCursor.getColumnName(timeColumn);
+                arrSongList.add(new Song(id, title, artist, date, time));
+            }
+            while (musicCursor.moveToNext());
+        }
+
+        songAdapter = new SongAdapter(getApplicationContext(), arrSongList);
+        lvListFileMusic.setAdapter(songAdapter);
+    }
+
+```
+
+
 ##Tham khảo
 + [List all music in media store with the paths](http://stackoverflow.com/questions/13568798/list-all-music-in-mediastore-with-the-paths)
 + [Create a music player on android project setup mobile](http://code.tutsplus.com/tutorials/create-a-music-player-on-android-project-setup--mobile-22764)
