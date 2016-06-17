@@ -11,3 +11,4 @@
 + [Create a Music Player on Android: User Controls](http://code.tutsplus.com/tutorials/create-a-music-player-on-android-user-controls--mobile-22787)
 + [Meida Player in Android](https://developer.android.com/reference/android/media/MediaPlayer.html)
 + [Android Media Player](http://www.tutorialspoint.com/android/android_mediaplayer.htm)
++ [Media Player](https://developer.android.com/guide/topics/media/mediaplayer.html)
