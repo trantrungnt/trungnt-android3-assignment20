@@ -12,3 +12,4 @@
 + [Meida Player in Android](https://developer.android.com/reference/android/media/MediaPlayer.html)
 + [Android Media Player](http://www.tutorialspoint.com/android/android_mediaplayer.htm)
 + [Media Player](https://developer.android.com/guide/topics/media/mediaplayer.html)
++ [Android building audio player tutorial](http://www.androidhive.info/2012/03/android-building-audio-player-tutorial/)
