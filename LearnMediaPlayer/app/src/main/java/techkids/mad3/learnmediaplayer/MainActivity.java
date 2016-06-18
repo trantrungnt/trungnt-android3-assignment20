@@ -24,14 +24,9 @@ import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    private Button btnReplay, btnAction, btnPrevious, btnNext;
+    private Button btnReplay, btnPlay, btnStop, btnPrevious, btnNext;
     private ListView lvListFileMusic;
-    private ArrayList<Song> arrSongList;
     private ContentResolver musicResolver;
-    private Uri musicUri;
-    private Cursor musicCursor;
-    private int titleColumn, idColumn, artistColumn, dateColumn, timeColumn;
-    private long id;
     private String title, artist, date, time;
     private SongAdapter songAdapter;
     private MediaPlayer mediaPlayer;
@@ -56,17 +51,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void displaySongList() {
         ArrayList songs=new ArrayList();
-        mediaPlayer = new MediaPlayer();
-        try {
-            path = Helper.PATH_STORAGE_MUSIC + "How Will I Know Who You Are - Jessica.mp3";
-            Log.d("path", path);
-            mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-            mediaPlayer.setDataSource(path);
-            mediaPlayer.prepare();
-            mediaPlayer.start();
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
+
+        playMediaPlayer();
 
         musicFolder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC);
         for (File f : musicFolder.listFiles())
@@ -105,14 +91,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initComponents() {
         btnReplay = (Button) this.findViewById(R.id.btnReplay);
-        btnAction = (Button) this.findViewById(R.id.btnAction);
+        btnPlay = (Button) this.findViewById(R.id.btnPlay);
         btnPrevious = (Button) this.findViewById(R.id.btnBack);
         btnNext = (Button) this.findViewById(R.id.btnNext);
+        btnStop = (Button) this.findViewById(R.id.btnStop);
 
         btnReplay.setOnClickListener(this);
-        btnAction.setOnClickListener(this);
+        btnPlay.setOnClickListener(this);
         btnNext.setOnClickListener(this);
         btnPrevious.setOnClickListener(this);
+        btnStop.setOnClickListener(this);
 
         lvListFileMusic = (ListView) this.findViewById(R.id.lvListFileMusic);
     }
@@ -124,13 +112,48 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (id)
         {
             case R.id.btnReplay:
+
+                mediaPlayer.setLooping(true);
                 break;
-            case R.id.btnAction:
+            case R.id.btnPlay:
+                playMediaPlayer();
                 break;
             case R.id.btnBack:
+
                 break;
             case R.id.btnNext:
                 break;
+            case R.id.btnStop:
+                stopMediaPlayer();
+                break;
         }
+    }
+
+    private void stopMediaPlayer()
+    {
+        if (mediaPlayer.isPlaying())
+        {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
+        Log.d("path", "Stop");
+    }
+
+    private void playMediaPlayer()
+    {
+        mediaPlayer = new MediaPlayer();
+        try {
+            path = Helper.PATH_STORAGE_MUSIC + "How Will I Know Who You Are - Jessica.mp3";
+            Log.d("path", path);
+            mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+            mediaPlayer.setDataSource(path);
+            mediaPlayer.prepare();
+            mediaPlayer.start();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        mediaPlayer.start();
+        Log.d("path", "Start");
     }
 }
