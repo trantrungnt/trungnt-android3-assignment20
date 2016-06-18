@@ -88,6 +88,9 @@ Kết quả đường dẫn của thư mục Music của SD Card trên máy tín
  String date = simpleDateFormat.format(f.lastModified());
 ```
 
++ ViewHolder có tác dụng lưu cache, bình thường không dùng Listview thì nó sẽ đổ dữ liệu hết vào Listview. Nếu dùng ViewHolder, trong Listview có 10 item chẳng hạn, ViewHolder chỉ load dữ liệu cho 10 items được nhìn thấy, còn những item ẩn thì chưa có dữ liệu => if convert view == null thì lưu cache
+ 
+
 
 ##Tham khảo
 + [List all music in media store with the paths](http://stackoverflow.com/questions/13568798/list-all-music-in-mediastore-with-the-paths)
