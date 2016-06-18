@@ -20,6 +20,13 @@ public class SongAdapter extends BaseAdapter {
     private TextView txtNameSong, txtAuthor, txtCurrentDate, txtTimeSong;
     private Song song;
 
+    private class ViewHolder{
+        TextView txtNameSong;
+        TextView txtAuthor;
+        TextView txtCurrentDate;
+        TextView txtTimeSong;
+    }
+
     public SongAdapter(Context c, ArrayList<Song> songs){
         this.songArrayList = songs;
         this.context = c;
@@ -43,20 +50,27 @@ public class SongAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        final ViewHolder holder;
+
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.song_item, parent, false);
+
+            holder = new ViewHolder();
+            holder.txtNameSong = (TextView) convertView.findViewById(R.id.txtNameSong);
+            holder.txtAuthor = (TextView) convertView.findViewById(R.id.txtAuthor);
+            holder.txtCurrentDate = (TextView) convertView.findViewById(R.id.txtCurrentDate);
+            holder.txtTimeSong = (TextView) convertView.findViewById(R.id.txtTimeSong);
+
+            convertView.setTag(holder);
+        }else {
+            holder = (ViewHolder) convertView.getTag();
         }
 
-        txtNameSong = (TextView) convertView.findViewById(R.id.txtNameSong);
-        txtAuthor = (TextView) convertView.findViewById(R.id.txtAuthor);
-        txtCurrentDate = (TextView) convertView.findViewById(R.id.txtCurrentDate);
-        txtTimeSong = (TextView) convertView.findViewById(R.id.txtTimeSong);
-
         song = songArrayList.get(position);
-        txtNameSong.setText(song.getTitle());
-        txtAuthor.setText(song.getArtist());
-        txtCurrentDate.setText(song.getCurrentDate());
-        txtTimeSong.setText(song.getTime());
+        holder.txtNameSong.setText(song.getTitle());
+        holder.txtAuthor.setText(song.getArtist());
+        holder.txtCurrentDate.setText(song.getCurrentDate());
+        holder.txtTimeSong.setText(song.getTime());
 
         return convertView;
     }
