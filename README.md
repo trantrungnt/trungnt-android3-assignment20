@@ -100,3 +100,4 @@ Kết quả đường dẫn của thư mục Music của SD Card trên máy tín
 + [Audio Player](http://www.srikanthtechnologies.com/blog/android/audioplayer.aspx)
 + [How to get the file creation data in Java](http://www.mkyong.com/java/how-to-get-the-file-creation-date-in-java/)
 + [Android - How to get a files creation date](http://stackoverflow.com/questions/2389225/android-how-to-get-a-files-creation-date)
++ [SimpleDateFormat convert data to string formatted parse](http://alvinalexander.com/java/simpledateformat-convert-date-to-string-formatted-parse)
