@@ -6,7 +6,7 @@
 
 ##Các bước để làm được bài
 + Truy cập vào External Storage - SDCARD
-+ Sử dụng MediaMetadataRetriever class để truy cập thông tin về bài hát có định dạng mmp3 file
++ Sử dụng MediaMetadataRetriever class để truy cập thông tin về bài hát có định dạng mp3 file
 + Xây dựng Adapter class để gắn dữ liệu cho Listview
 
 
@@ -79,6 +79,11 @@ Kết quả đường dẫn của thư mục Music của SD Card trên máy tín
 ```
  D/path: /storage/emulated/0/Music/How Will I Know Who You Are - Jessica.mp3
  D/path: /storage/emulated/0/Music
+```
++ Định dạng Date của ngày sửa File theo kiểu: ngày - tháng - năm dùng SimpleDateFormat class
+```
+ simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+ String date = simpleDateFormat.format(f.lastModified());
 ```
 
 
