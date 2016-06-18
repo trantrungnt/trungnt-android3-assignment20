@@ -65,6 +65,7 @@ hoặc:
 ```
 Kết quả đường dẫn của thư mục Music của SD Card trên máy tính: 
 ```
+ D/path: /storage/emulated/0/Music/How Will I Know Who You Are - Jessica.mp3
  D/path: /storage/emulated/0/Music
 ```
 
