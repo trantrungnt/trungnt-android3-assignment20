@@ -107,3 +107,4 @@ Kết quả đường dẫn của thư mục Music của SD Card trên máy tín
 + [Android - How to get a files creation date](http://stackoverflow.com/questions/2389225/android-how-to-get-a-files-creation-date)
 + [SimpleDateFormat convert data to string formatted parse](http://alvinalexander.com/java/simpledateformat-convert-date-to-string-formatted-parse)
 + [Change date format to String in Java](http://stackoverflow.com/questions/4772425/change-date-format-in-a-java-string)
++ [Formatter date in Java (doc)](https://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html)
