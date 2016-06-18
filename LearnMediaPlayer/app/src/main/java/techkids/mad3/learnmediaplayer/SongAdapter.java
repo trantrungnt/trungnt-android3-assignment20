@@ -1,6 +1,7 @@
 package techkids.mad3.learnmediaplayer;
 
 import android.content.Context;
+import android.media.MediaMetadataRetriever;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ public class SongAdapter extends BaseAdapter {
     private Context context;
     private TextView txtNameSong, txtAuthor, txtCurrentDate, txtTimeSong;
     private Song song;
+    private MediaMetadataRetriever mediaMetadataRetriever;
 
     public SongAdapter(Context c, ArrayList<Song> songs){
         this.songArrayList = songs;

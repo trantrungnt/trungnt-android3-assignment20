@@ -63,8 +63,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             e.printStackTrace();
         }
 
+        //du lieu gia lap
+        Song song = new Song(1, "Trung", "Hello", "today", "24h");
+        songs.add(song);
+
         songAdapter = new SongAdapter(getApplicationContext(), songs);
         lvListFileMusic.setAdapter(songAdapter);
+        Log.d("path", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC).getPath());
     }
 
     private void initComponents() {
