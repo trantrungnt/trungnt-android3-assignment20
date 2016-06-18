@@ -42,6 +42,31 @@
 ```
  Log.d("path", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC).getPath());
 ```
+hoặc: 
+```
+ private void displaySongList() {
+        ArrayList songs=new ArrayList();
+        mediaPlayer = new MediaPlayer();
+        try {
+            path = Helper.PATH_STORAGE_MUSIC + "How Will I Know Who You Are - Jessica.mp3";
+            Log.d("path", path);
+            mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+            mediaPlayer.setDataSource(path);
+            mediaPlayer.prepare();
+            mediaPlayer.start();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        songAdapter = new SongAdapter(getApplicationContext(), songs);
+        lvListFileMusic.setAdapter(songAdapter);
+    }
+
+```
+Kết quả đường dẫn của thư mục Music của SD Card trên máy tính: 
+```
+ D/path: /storage/emulated/0/Music
+```
 
 
 ##Tham khảo
