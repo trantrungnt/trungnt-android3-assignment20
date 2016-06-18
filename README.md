@@ -4,6 +4,12 @@
 ![BTVN Media Player2](http://i477.photobucket.com/albums/rr132/trungepu/13461295_861696870603766_1416147647_o_zpsvxpx1bxg.jpg)
 ![BTVN Mediao Player3](http://i477.photobucket.com/albums/rr132/trungepu/BTVN%20Media%20Player%202_zps3b9i4fax.jpg)
 
+##Các bước để làm được bài
++ Truy cập vào External Storage - SDCARD
++ Sử dụng MediaMetadataRetriever class để truy cập thông tin về bài hát có định dạng mmp3 file
++ Xây dựng Adapter class để gắn dữ liệu cho Listview
+
+
 ##Chú ý khi code
 + Có 3 cách chạy file mp3: từ Application Resource, từ Stored in sd card và từ Internet
 ```
