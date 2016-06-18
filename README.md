@@ -63,6 +63,12 @@ hoặc:
     }
 
 ```
+Trong đó, file Helper chứa nội dung đường dẫn của cách này
+```
+public class Helper {
+    public static String PATH_STORAGE_MUSIC = Environment.getExternalStorageDirectory().getPath() + "/Music/";
+}
+```
 Kết quả đường dẫn của thư mục Music của SD Card trên máy tính: 
 ```
  D/path: /storage/emulated/0/Music/How Will I Know Who You Are - Jessica.mp3
