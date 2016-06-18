@@ -9,6 +9,8 @@
 + Sử dụng MediaMetadataRetriever class để truy cập thông tin về bài hát có định dạng mp3 file
 + Xây dựng Adapter class để gắn dữ liệu cho Listview
 
+##Demo chương trình
++ [Demo hiển thị toàn bộ file mp3 có trong thư mục Music trên SD Card và hiên thị thông tin File lên ListView. Chương trình có thêm chức năng: Start, Stop bài hát (đây là phiên bản 1)](https://youtu.be/EbHQfXeIVtI)
 
 ##Chú ý khi code
 + Có 3 cách chạy file mp3: từ Application Resource, từ Stored in sd card và từ Internet
