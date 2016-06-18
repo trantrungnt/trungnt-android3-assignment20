@@ -4,22 +4,12 @@ package techkids.mad3.learnmediaplayer;
  * Created by TrungNT on 6/17/2016.
  */
 public class Song {
-    private long id;
-
     public String getTitle() {
         return title;
     }
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getArtist() {
@@ -51,8 +41,7 @@ public class Song {
     private String currentDate;
     private String time;
 
-    public Song(long id, String title, String artist, String currentDate, String time) {
-        this.id = id;
+    public Song(String title, String artist, String currentDate, String time) {
         this.title = title;
         this.artist = artist;
         this.currentDate = currentDate;

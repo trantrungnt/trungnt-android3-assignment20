@@ -3,6 +3,7 @@ package techkids.mad3.learnmediaplayer;
 import android.content.ContentResolver;
 import android.database.Cursor;
 import android.media.AudioManager;
+import android.media.MediaMetadataRetriever;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Environment;
@@ -18,6 +19,7 @@ import android.widget.MediaController;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 
@@ -34,6 +36,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private SongAdapter songAdapter;
     private MediaPlayer mediaPlayer;
     private String path;
+    private MediaMetadataRetriever mediaMetadataRetriever;
+    private File musicFolder;
+    private SimpleDateFormat simpleDateFormat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,9 +68,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             e.printStackTrace();
         }
 
-        //du lieu gia lap
-        Song song = new Song(1, "Trung", "Hello", "today", "24h");
-        songs.add(song);
+        musicFolder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC);
+        for (File f : musicFolder.listFiles())
+        {
+            mediaMetadataRetriever = new MediaMetadataRetriever();
+            mediaMetadataRetriever.setDataSource(musicFolder + "/" + f.getName());
+
+            int secs = Integer.parseInt(mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)) / 1000;
+            int mins = secs / 60;
+            secs =  secs % 60;
+            String singer = mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST);
+
+            if ( singer == null || singer.equals(""))
+                singer = "Unknown";
+            String songtitle  = mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE);
+
+            if ( songtitle == null )
+                songtitle = f.getName();
+
+            simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+            String date = simpleDateFormat.format(f.lastModified());
+
+            String duration = String.format("%02d:%02d", mins, secs);
+
+            Log.d("test", musicFolder + "/" + f.getName());
+//            if (songtitle.toUpperCase().contains(title.toUpperCase())) {
+                Song song = new Song(songtitle, singer, date , duration);
+                songs.add(song);
+//            }
+        }
 
         songAdapter = new SongAdapter(getApplicationContext(), songs);
         lvListFileMusic.setAdapter(songAdapter);

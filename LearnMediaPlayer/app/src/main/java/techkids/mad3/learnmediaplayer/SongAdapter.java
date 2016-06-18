@@ -19,7 +19,6 @@ public class SongAdapter extends BaseAdapter {
     private Context context;
     private TextView txtNameSong, txtAuthor, txtCurrentDate, txtTimeSong;
     private Song song;
-    private MediaMetadataRetriever mediaMetadataRetriever;
 
     public SongAdapter(Context c, ArrayList<Song> songs){
         this.songArrayList = songs;
