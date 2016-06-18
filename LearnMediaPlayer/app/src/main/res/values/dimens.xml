@@ -10,4 +10,5 @@
     <dimen name="text_view_marginLeft">20dp</dimen>
     <dimen name="text_view_marginTop">5dp</dimen>
     <dimen name="text_view_marginRight">20dp</dimen>
+    <dimen name="skBar_height">30dp</dimen>
 </resources>

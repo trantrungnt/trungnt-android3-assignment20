@@ -50,9 +50,15 @@
         android:layout_width="@dimen/btn_width"
         android:layout_height="@dimen/btnHeight" />
 
+    <SeekBar
+        android:id="@+id/skBar"
+        android:layout_above="@id/btnReplay"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/skBar_height" />
+
     <ListView
         android:id="@+id/lvListFileMusic"
-        android:layout_above="@id/btnReplay"
+        android:layout_above="@id/skBar"
         android:layout_marginBottom="@dimen/lvListFileMusic_marginBotton"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></ListView>

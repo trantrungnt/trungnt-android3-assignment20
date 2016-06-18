@@ -112,8 +112,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (id)
         {
             case R.id.btnReplay:
-
-                mediaPlayer.setLooping(true);
+                repeatMediaPlayer();
                 break;
             case R.id.btnPlay:
                 playMediaPlayer();
@@ -155,5 +154,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         mediaPlayer.start();
         Log.d("path", "Start");
+    }
+
+    private void repeatMediaPlayer()
+    {
+        mediaPlayer.setLooping(true);
+        mediaPlayer.start();
     }
 }
