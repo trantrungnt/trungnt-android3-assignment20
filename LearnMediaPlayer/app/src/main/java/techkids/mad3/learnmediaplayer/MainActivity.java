@@ -1,24 +1,18 @@
 package techkids.mad3.learnmediaplayer;
 
 import android.content.ContentResolver;
-import android.database.Cursor;
 import android.media.AudioManager;
 import android.media.MediaMetadataRetriever;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Environment;
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.ThemedSpinnerAdapter;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.MediaController;
 
 import java.io.File;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
@@ -40,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initComponents();
+        mediaPlayer = new MediaPlayer();
     }
 
     @Override
@@ -123,25 +118,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnNext:
                 break;
             case R.id.btnStop:
-                stopMediaPlayer();
+                pauseMediaPlayer();
                 break;
         }
     }
 
-    private void stopMediaPlayer()
+    private void pauseMediaPlayer()
     {
-        if (mediaPlayer.isPlaying())
+        if (mediaPlayer.isPlaying() && mediaPlayer!=null)
         {
-            mediaPlayer.stop();
-            mediaPlayer.release();
-            mediaPlayer = null;
-        }
-        Log.d("path", "Stop");
+            mediaPlayer.pause();
+        }else
+                mediaPlayer.start();
+
+
     }
 
     private void playMediaPlayer()
     {
-        mediaPlayer = new MediaPlayer();
         try {
             path = Helper.PATH_STORAGE_MUSIC + "How Will I Know Who You Are - Jessica.mp3";
             Log.d("path", path);
