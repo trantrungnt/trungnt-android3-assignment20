@@ -38,6 +38,11 @@
 
 ```
 
++ Truy cập: cách lấy đường dẫn của thư mục MUSIC trong SD Card
+```
+ Log.d("path", Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC).getPath());
+```
+
 
 ##Tham khảo
 + [List all music in media store with the paths](http://stackoverflow.com/questions/13568798/list-all-music-in-mediastore-with-the-paths)
